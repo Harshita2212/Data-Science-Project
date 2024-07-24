@@ -2,12 +2,12 @@ import sys
 import os
 from dataclasses import dataclass
 
-import numpy as np
-import pandas as pd
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+import numpy as np # type: ignore
+import pandas as pd # type: ignore
+from sklearn.compose import ColumnTransformer # type: ignore
+from sklearn.impute import SimpleImputer # type: ignore
+from sklearn.pipeline import Pipeline # type: ignore
+from sklearn.preprocessing import OneHotEncoder, StandardScaler # type: ignore
 
 from src.utils import save_object
 from src.logger import logging
@@ -111,7 +111,8 @@ class DataTransformation:
             raise CustomException(e, sys)
 
 if __name__ == "__main__":
-    obj = DataIngestion()
+    obj = DataIngestion() # type: ignore
     train_data, test_data = obj.initiate_data_ingestion()
+    
     data_transformation = DataTransformation()
     data_transformation.initiate_data_transformation(train_data, test_data)
